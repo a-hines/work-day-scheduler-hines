@@ -1,6 +1,6 @@
 # Work Day Scheduler 
 
-Deployed app: 
+Deployed app: https://a-hines.github.io/work-day-scheduler-hines/
 
 The acceptance critria for this project were as follows: 
 GIVEN I am using a daily planner to create a schedule
