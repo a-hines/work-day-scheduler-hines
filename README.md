@@ -17,4 +17,4 @@ THEN the text for that event is saved in local storage
 WHEN I refresh the page
 THEN the saved events persist
 
-Screenshot of deployed app:
+Screenshot of deployed app:![scheduler-screenshot](https://user-images.githubusercontent.com/99751726/196966554-9a070f17-92dd-4da6-8d05-a7ac2d67a455.jpg)
