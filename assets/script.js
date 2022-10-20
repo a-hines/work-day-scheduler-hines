@@ -1,14 +1,27 @@
-$(document).ready(function (){
     //display current day & time
-    $("#currentDay").text(moment().format("MMMM Do YYYY, h:mm:ss a"));
+    $("#currentDay").text(moment().format("MMM Do YYYY"));
+
+$(document).ready(function (){
 
     $(".saveBtn").on("click", function(){
-        console.log(this);
         let text = $(this).siblings(".description").val();
         let time = $(this).siblings(".hour").text();
 
     // set items in local storage
     localStorage.setItem(time, text);
+    })
+
+    $(".time-block").each(function () {
+        let timeNow = moment().hour();
+        let currentHour = parseInt($(this).attr("id").split("hour")[1]);
+
+        if (currentHour > timeNow) {
+            $(this).addClass("future");
+        } else if (currentHour === timeNow) {
+            $(this).addClass("present");
+        } else {
+            $(this).addClass("past");
+        }
     })
 
     // load saved data from localStorage for each hour created
@@ -23,16 +36,4 @@ $(document).ready(function (){
     $("#hour16 .description").val(localStorage.getItem("4:00 PM"));
     $("#hour17 .description").val(localStorage.getItem("5:00 PM"));
 
-    $(".time-block").each(function () {
-        let timeNow = moment().hour();
-        let currentHour = parseInt($(this).attr("id").split("hour")[1]);
-
-        if (currentHour > timeNow) {
-            $(this).addClass("future");
-        } else if (currentHour === timeNow) {
-            $(this).addClass("present");
-        } else {
-            $(this).addClass("past");
-        }
-    })
 })
